@@ -13,20 +13,20 @@
 #import <AuthenticationServices/AuthenticationServices.h>
 #import <Masonry/Masonry.h>
 
+#define leftSpace 50
+#define rightSpace -50
+#define btnHeight 45
+
 @interface ViewController ()<ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
 
 //----------------- 苹果登录 -------------------
 //白色苹果登录按钮
 @property (nonatomic, strong) ASAuthorizationAppleIDButton *appleLoginBtnWhite;
-//白色带边框苹果登录按钮
-@property (nonatomic, strong) ASAuthorizationAppleIDButton *appleLoginBtnWhiteLine;
 //黑色苹果登录按钮
 @property (nonatomic, strong) ASAuthorizationAppleIDButton *appleLoginBtnBlack;
-//appleID request + password request (ASAuthorizationAppleIDButtonTypeSignIn)
-@property (nonatomic, strong) ASAuthorizationAppleIDButton *appleLoginBtnSignIn;
-//appleID request + password request (ASAuthorizationAppleIDButtonTypeContinue)
-@property (nonatomic, strong) ASAuthorizationAppleIDButton *appleLoginBtnContinue;
-
+//自定义按钮
+@property (nonatomic, strong) UIButton *customBtn;
+//分割线
 @property (nonatomic, strong) UILabel *orLabel;
 //----------------- 其他登录 -------------------
 @property (nonatomic, strong) UIButton *otherLoginBtn;
@@ -39,107 +39,87 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     self.view.backgroundColor = [UIColor redColor];
+     self.view.backgroundColor = [UIColor orangeColor];
     [self setuoView];
 }
 
 - (void)setuoView{
+    
     [self.view addSubview:self.appleLoginBtnWhite];
-    [self.view addSubview:self.appleLoginBtnWhiteLine];
     [self.view addSubview:self.appleLoginBtnBlack];
-    [self.view addSubview:self.appleLoginBtnSignIn];
-    [self.view addSubview:self.appleLoginBtnContinue];
+    [self.view addSubview:self.customBtn];
     [self.view addSubview:self.orLabel];
     [self.view addSubview:self.otherLoginBtn];
     
     [_appleLoginBtnWhite mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(25);
-        make.right.mas_equalTo(self.view).offset(-25);
+        make.left.mas_equalTo(self.view).offset(leftSpace);
+        make.right.mas_equalTo(self.view).offset(rightSpace);
         make.top.mas_equalTo(self.view).offset(200);
-        make.height.mas_equalTo(40);
-    }];
-    
-    [_appleLoginBtnWhiteLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(25);
-        make.right.mas_equalTo(self.view).offset(-25);
-        make.top.mas_equalTo(_appleLoginBtnWhite.mas_bottom).offset(20);
-        make.height.mas_equalTo(40);
+        make.height.mas_equalTo(btnHeight);
     }];
     
     [_appleLoginBtnBlack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(25);
-        make.right.mas_equalTo(self.view).offset(-25);
-        make.top.mas_equalTo(_appleLoginBtnWhiteLine.mas_bottom).offset(50);
-        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(self.view).offset(leftSpace);
+        make.right.mas_equalTo(self.view).offset(rightSpace);
+        make.top.mas_equalTo(_appleLoginBtnWhite.mas_bottom).offset(30);
+        make.height.mas_equalTo(btnHeight);
     }];
     
-    [_appleLoginBtnSignIn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(25);
-        make.right.mas_equalTo(self.view).offset(-25);
-        make.top.mas_equalTo(_appleLoginBtnBlack.mas_bottom).offset(20);
-        make.height.mas_equalTo(40);
-    }];
-    
-    [_appleLoginBtnContinue mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view).offset(25);
-        make.right.mas_equalTo(self.view).offset(-25);
-        make.top.mas_equalTo(_appleLoginBtnSignIn.mas_bottom).offset(20);
-        make.height.mas_equalTo(40);
+    [_customBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view).offset(leftSpace);
+        make.right.mas_equalTo(self.view).offset(rightSpace);
+        make.top.mas_equalTo(_appleLoginBtnBlack.mas_bottom).offset(30);
+        make.height.mas_equalTo(btnHeight);
     }];
     
     [_orLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.top.mas_equalTo(_appleLoginBtnContinue.mas_bottom).offset(15);
+        make.top.mas_equalTo(_customBtn.mas_bottom).offset(20);
     }];
     
     [_otherLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.top.mas_equalTo(_orLabel.mas_bottom).offset(25);
+        make.top.mas_equalTo(_orLabel.mas_bottom).offset(20);
     }];
 }
 
 - (ASAuthorizationAppleIDButton *)appleLoginBtnWhite{
     if (!_appleLoginBtnWhite) {
+        /*
+         ASAuthorizationAppleIDButtonStyleWhite:白色苹果登录按钮
+         ASAuthorizationAppleIDButtonStyleWhiteOutline:白色带边框苹果登录按钮
+         */
         _appleLoginBtnWhite = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeDefault authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleWhite];
         [_appleLoginBtnWhite addTarget:self action:@selector(handleAppleIDBtnClicked1) forControlEvents:UIControlEventTouchUpInside];
+        [_appleLoginBtnWhite setCornerRadius:btnHeight/2.0];
     }
     return _appleLoginBtnWhite;
 }
-- (ASAuthorizationAppleIDButton *)appleLoginBtnWhiteLine{
-    if (!_appleLoginBtnWhiteLine) {
-        _appleLoginBtnWhiteLine = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeDefault authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleWhiteOutline];
-        [_appleLoginBtnWhiteLine addTarget:self action:@selector(handleAppleIDBtnClicked1) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _appleLoginBtnWhiteLine;
-}
+
 - (ASAuthorizationAppleIDButton *)appleLoginBtnBlack{
     if (!_appleLoginBtnBlack) {
         _appleLoginBtnBlack = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeDefault authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleBlack];
         [_appleLoginBtnBlack addTarget:self action:@selector(handleAppleIDBtnClicked2) forControlEvents:UIControlEventTouchUpInside];
-        [_appleLoginBtnBlack setCornerRadius:20];
+        [_appleLoginBtnBlack setCornerRadius:btnHeight/2.0];
     }
     return _appleLoginBtnBlack;
 }
-- (ASAuthorizationAppleIDButton *)appleLoginBtnSignIn{
-    if (!_appleLoginBtnSignIn) {
-        _appleLoginBtnSignIn = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeSignIn authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleBlack];
-        [_appleLoginBtnSignIn addTarget:self action:@selector(handleAppleIDBtnClicked2) forControlEvents:UIControlEventTouchUpInside];
+- (UIButton *)customBtn{
+    if (!_customBtn) {
+        _customBtn = [UIButton new];
+        [_customBtn setBackgroundColor:[UIColor redColor]];
+        [_customBtn setTitle:@"Custom Apple Login" forState:UIControlStateNormal];
+        [_customBtn.layer setCornerRadius:btnHeight/2.0];
+        [_customBtn addTarget:self action:@selector(handleAppleIDBtnClicked1) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _appleLoginBtnSignIn;
-}
-- (ASAuthorizationAppleIDButton *)appleLoginBtnContinue{
-    if (!_appleLoginBtnContinue) {
-         _appleLoginBtnContinue = [[ASAuthorizationAppleIDButton alloc] initWithAuthorizationButtonType:ASAuthorizationAppleIDButtonTypeContinue authorizationButtonStyle:ASAuthorizationAppleIDButtonStyleBlack];
-         [_appleLoginBtnContinue addTarget:self action:@selector(handleAppleIDBtnClicked2) forControlEvents:UIControlEventTouchUpInside];
-     }
-     return _appleLoginBtnContinue;
+    return _customBtn;
 }
 - (UILabel *)orLabel{
     if (!_orLabel) {
         _orLabel = [UILabel new];
         _orLabel.numberOfLines = 1;
         _orLabel.textColor = [UIColor blackColor];
-        [_orLabel setText:@"-OR-"];
+        [_orLabel setText:@"--- OR ---"];
     }
     return _orLabel;
 }
@@ -195,7 +175,7 @@
 }
 //其他登录方式
 - (void)changeStyleToAnotherWays {
-    
+    NSLog(@"使用其他登录方式");
 }
 
 
