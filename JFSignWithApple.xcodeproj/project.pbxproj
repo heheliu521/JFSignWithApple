@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FE565F1DB0A563763C363D8 /* libPods-JFSignWithApple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5157C1491D33849C7D2E0616 /* libPods-JFSignWithApple.a */; };
 		C79F21F7230D1EBF0033C409 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F21F6230D1EBF0033C409 /* AppDelegate.m */; };
 		C79F21FA230D1EBF0033C409 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F21F9230D1EBF0033C409 /* SceneDelegate.m */; };
 		C79F21FD230D1EBF0033C409 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F21FC230D1EBF0033C409 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 		C79F2208230D1EF60033C409 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F2207230D1EF60033C409 /* main.m */; };
 		C79F2212230D1EF60033C409 /* JFSignWithAppleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F2211230D1EF60033C409 /* JFSignWithAppleTests.m */; };
 		C79F221D230D1EF60033C409 /* JFSignWithAppleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F221C230D1EF60033C409 /* JFSignWithAppleUITests.m */; };
+		C79F222F230D3C370033C409 /* JFAppleSignManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F222E230D3C370033C409 /* JFAppleSignManager.m */; };
+		C79F2232230D3C5F0033C409 /* JFAppleIDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F2231230D3C5F0033C409 /* JFAppleIDUserModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		306FDE19CEC0CE6AC2D16DDF /* Pods-JFSignWithApple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFSignWithApple.debug.xcconfig"; path = "Target Support Files/Pods-JFSignWithApple/Pods-JFSignWithApple.debug.xcconfig"; sourceTree = "<group>"; };
+		4DE48910F63A8AD38268CE2C /* Pods-JFSignWithApple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFSignWithApple.release.xcconfig"; path = "Target Support Files/Pods-JFSignWithApple/Pods-JFSignWithApple.release.xcconfig"; sourceTree = "<group>"; };
+		5157C1491D33849C7D2E0616 /* libPods-JFSignWithApple.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JFSignWithApple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79F21F2230D1EBE0033C409 /* JFSignWithApple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFSignWithApple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79F21F5230D1EBE0033C409 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C79F21F6230D1EBF0033C409 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +60,11 @@
 		C79F2218230D1EF60033C409 /* JFSignWithAppleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JFSignWithAppleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79F221C230D1EF60033C409 /* JFSignWithAppleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFSignWithAppleUITests.m; sourceTree = "<group>"; };
 		C79F221E230D1EF60033C409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C79F222B230D25020033C409 /* JFSignWithApple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JFSignWithApple.entitlements; sourceTree = "<group>"; };
+		C79F222D230D3C370033C409 /* JFAppleSignManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFAppleSignManager.h; sourceTree = "<group>"; };
+		C79F222E230D3C370033C409 /* JFAppleSignManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFAppleSignManager.m; sourceTree = "<group>"; };
+		C79F2230230D3C5F0033C409 /* JFAppleIDUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JFAppleIDUserModel.h; sourceTree = "<group>"; };
+		C79F2231230D3C5F0033C409 /* JFAppleIDUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JFAppleIDUserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FE565F1DB0A563763C363D8 /* libPods-JFSignWithApple.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230204636AF8A89ACBAC25BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				306FDE19CEC0CE6AC2D16DDF /* Pods-JFSignWithApple.debug.xcconfig */,
+				4DE48910F63A8AD38268CE2C /* Pods-JFSignWithApple.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A9FA674581574B181FB9B85F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5157C1491D33849C7D2E0616 /* libPods-JFSignWithApple.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C79F21E9230D1EBB0033C409 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +117,8 @@
 				C79F2210230D1EF60033C409 /* JFSignWithAppleTests */,
 				C79F221B230D1EF60033C409 /* JFSignWithAppleUITests */,
 				C79F21F3230D1EBE0033C409 /* Products */,
+				230204636AF8A89ACBAC25BC /* Pods */,
+				A9FA674581574B181FB9B85F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +135,8 @@
 		C79F21F4230D1EBE0033C409 /* JFSignWithApple */ = {
 			isa = PBXGroup;
 			children = (
+				C79F222C230D3C090033C409 /* JFSignView */,
+				C79F222B230D25020033C409 /* JFSignWithApple.entitlements */,
 				C79F21F5230D1EBE0033C409 /* AppDelegate.h */,
 				C79F21F6230D1EBF0033C409 /* AppDelegate.m */,
 				C79F21F8230D1EBF0033C409 /* SceneDelegate.h */,
@@ -137,6 +170,17 @@
 			path = JFSignWithAppleUITests;
 			sourceTree = "<group>";
 		};
+		C79F222C230D3C090033C409 /* JFSignView */ = {
+			isa = PBXGroup;
+			children = (
+				C79F222D230D3C370033C409 /* JFAppleSignManager.h */,
+				C79F222E230D3C370033C409 /* JFAppleSignManager.m */,
+				C79F2230230D3C5F0033C409 /* JFAppleIDUserModel.h */,
+				C79F2231230D3C5F0033C409 /* JFAppleIDUserModel.m */,
+			);
+			path = JFSignView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C79F2221230D1EF60033C409 /* Build configuration list for PBXNativeTarget "JFSignWithApple" */;
 			buildPhases = (
+				E98DF03A80C8AE4316BA3770 /* [CP] Check Pods Manifest.lock */,
 				C79F21EE230D1EBE0033C409 /* Sources */,
 				C79F21EF230D1EBE0033C409 /* Frameworks */,
 				C79F21F0230D1EBE0033C409 /* Resources */,
@@ -262,15 +307,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E98DF03A80C8AE4316BA3770 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JFSignWithApple-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C79F21EE230D1EBE0033C409 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79F2232230D3C5F0033C409 /* JFAppleIDUserModel.m in Sources */,
 				C79F21FD230D1EBF0033C409 /* ViewController.m in Sources */,
 				C79F21F7230D1EBF0033C409 /* AppDelegate.m in Sources */,
 				C79F2208230D1EF60033C409 /* main.m in Sources */,
 				C79F21FA230D1EBF0033C409 /* SceneDelegate.m in Sources */,
+				C79F222F230D3C370033C409 /* JFAppleSignManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,8 +509,10 @@
 		};
 		C79F2222230D1EF60033C409 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 306FDE19CEC0CE6AC2D16DDF /* Pods-JFSignWithApple.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JFSignWithApple/JFSignWithApple.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFSignWithApple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -453,8 +527,10 @@
 		};
 		C79F2223230D1EF60033C409 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE48910F63A8AD38268CE2C /* Pods-JFSignWithApple.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JFSignWithApple/JFSignWithApple.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFSignWithApple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
